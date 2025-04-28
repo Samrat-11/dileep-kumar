@@ -185,9 +185,43 @@ sr.reveal('.skills__data, .work__img, .contact__input',{interval: 200});
 
 /*===== Type SCROLL REVEAL ANIMATION =====*/
 const typed = new Typed('.multiple-text', {
-    strings: ['Boomi Developer'],
+    strings: ['Boomi Developer', 'Integration <br> Specalist', 'I make applications <br> talk!'],
     typespeed: 20,
     backspeed: 20,
     backDelay: 2500,
     loop: true,
 });
+
+// Function to animate counter
+function animateCounter(element, target, duration) {
+  let start = 0;
+  const increment = target / (duration / 16); // 60 FPS
+  const updateCounter = () => {
+      start += increment;
+      if (start >= target) {
+          element.textContent = target + '+';
+          return;
+      }
+      element.textContent = Math.floor(start) + '+';
+      requestAnimationFrame(updateCounter);
+  };
+  updateCounter();
+}
+
+// Intersection Observer to trigger animation when in view
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+      if (entry.isIntersecting) {
+          const counters = entry.target.querySelectorAll('.about__info-title');
+          counters.forEach(counter => {
+              const target = parseInt(counter.getAttribute('data-count'));
+              animateCounter(counter, target, 2000); // 2 seconds animation
+          });
+          observer.unobserve(entry.target); // Stop observing after animation
+      }
+  });
+}, { threshold: 0.5 });
+
+// Observe the stats section
+const statsSection = document.querySelector('.about__info');
+observer.observe(statsSection);
