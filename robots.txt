@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.dileepkancherla.dev/sitemap.xml
