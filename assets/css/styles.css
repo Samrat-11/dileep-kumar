@@ -157,6 +157,9 @@ img {
 }
 .nav__logo {
   color: var(--second-color);
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 .nav__toggle {
   color: var(--second-color);
@@ -179,7 +182,25 @@ img {
 .show {
   right: 0;
 }
+/* LOGO IMAGE FIX */
+.logo-img {
+  max-height: 80px;   /* KEY LINE */
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
 
+/* MOBILE FIX */
+@media (max-width: 768px) {
+  .header,
+  .nav {
+    height: 64px;
+  }
+
+  .logo-img {
+    max-height: 70px;
+  }
+}
 /*===== HOME =====*/
 .home {
   position: relative;
@@ -341,6 +362,61 @@ img {
       font-size: 2rem;
   }
 }
+
+/* About - What I Do & Skills */
+
+.about-work {
+  margin-top: 60px;
+}
+
+.about-work h2 {
+  font-size: 1.9rem;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.about-work h3 {
+  font-size: 1.2rem;
+  margin-top: 28px;
+  margin-bottom: 8px;
+  color: #38bdf8;
+}
+
+.about-intro {
+  font-size: 1rem;
+  color: #cbd5f5;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.about-work p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #e5e7eb;
+}
+
+.skills-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 8px;
+}
+
+.skills-list li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  color: #cbd5f5;
+}
+
+.skills-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #38bdf8;
+}
+
+
 /* ===== SKILLS =====*/
 .skills__container {
   row-gap: 2rem;
@@ -909,6 +985,102 @@ body.no-scroll {
     gap: 1.5rem;
   }
 }
+/* ===========================
+   FAQ SECTION
+=========================== */
+
+.faq-section {
+  padding: 80px 20px;
+  background: linear-gradient(180deg, #020617, #020617);
+}
+
+.faq-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faq-title {
+  text-align: center;
+  font-size: 2.4rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.faq-subtitle {
+  text-align: center;
+  font-size: 1rem;
+  color: #94a3b8;
+  margin-bottom: 45px;
+}
+
+/* FAQ ITEM */
+.faq-item {
+  border-bottom: 1px solid #1e293b;
+}
+
+.faq-question {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 22px 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+}
+
+.faq-text {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #e5e7eb;
+}
+
+.faq-question:hover .faq-text {
+  color: #38bdf8;
+}
+
+/* PLUS ICON */
+.faq-icon {
+  font-size: 1.5rem;
+  color: #38bdf8;
+  transition: transform 0.3s ease;
+}
+
+/* ANSWER */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.faq-answer p {
+  padding-bottom: 22px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #cbd5f5;
+}
+
+/* ACTIVE STATE */
+.faq-item.active .faq-answer {
+  max-height: 300px;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .faq-title {
+    font-size: 1.9rem;
+  }
+
+  .faq-text {
+    font-size: 1rem;
+  }
+}
+
 /* ===== FOOTER =====*/
 .footer {
   background-color: var(--second-color);

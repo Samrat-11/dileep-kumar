@@ -154,6 +154,28 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+/* --------------- FAQ Accordion --------------- */
+  document.addEventListener("DOMContentLoaded", function () {
+    const faqQuestions = document.querySelectorAll(".faq-question");
+
+    faqQuestions.forEach(question => {
+      question.addEventListener("click", () => {
+        const faqItem = question.closest(".faq-item");
+
+        // Close others (accordion behavior)
+        document.querySelectorAll(".faq-item").forEach(item => {
+          if (item !== faqItem) {
+            item.classList.remove("active");
+          }
+        });
+
+        // Toggle current
+        faqItem.classList.toggle("active");
+      });
+    });
+  });
+
+/*==================== Faq end ====================*/
 
 
 /*===== Contact form =====*/
