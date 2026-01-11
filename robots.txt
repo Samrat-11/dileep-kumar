@@ -1,17 +1,4 @@
 User-agent: *
 Allow: /
 
-# Block unnecessary system paths (if any exist)
-Disallow: /wp-admin/
-Disallow: /cgi-bin/
-Disallow: /tmp/
-Disallow: /private/
-
-# Allow essential resources
-Allow: /wp-admin/admin-ajax.php
-
-# Sitemap location
 Sitemap: https://www.dileepkancherla.dev/sitemap.xml
-
-User-agent: bingbot
-Allow: /
